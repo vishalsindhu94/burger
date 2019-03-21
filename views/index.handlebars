@@ -1,37 +1,34 @@
 <h1>Burgers shop</h1>
 
-<main>
-    <div class="container">
-        <div class = "row">
-            <div class= "col 6">
-
+  <div class="not devoured">
   {{#each burgers}}
-    {{#unless this.devour}}
-       <div>
-              <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
-                <button type="submit" class="EatBurger"> {{this.burgers_name}}</button>
-              </form>
-            </div>
+    {{#unless devoured}}
+      <li>
+					<form action="/{{this.id}}?_method=PUT" method="POST">
+						<p>{{this.id}}. {{this.burgers_name}}</p>
+						<button type="submit">devour</button>
+					</form>
+				</li>
     {{/unless}}
   {{/each}}
   </div>
 
-</div>
+<div id="devoured">
 <h2>Burgers devoured!</h2>
-    <div class = "col 6">
-<ul>
-  {{#each burgers}}
-    {{#if devour}}
-     <div class="DevouredBurgers">
-              <div>
-    {{/if}}
-  {{/each}}
-</ul>
-</div>
-    </div>
-</main>
+   <ul>
+				{{#each burgers}}
+				{{#if this.devoured}}
+				<li>
+					<p>{{this.id}}. {{this.burgers_name}}</p>
+				</li>
+				{{/if}}
+				{{/each}}
+			</ul>
+      </div>
+    </section>
+    
 <h2>Add a burger</h2>
-<form class="create-form">
+<form action="/api/addBurger" method="POST">
 
   <div class="form-group">
     <label for="ca">Burgers Name:</label>
@@ -40,8 +37,8 @@
 
   <div class="form-group">
     <label for="devour">devour</label><br>
-    <input type="radio" name="sleepy" value="1" checked> devoured<br>
-    <input type="radio" name="sleepy" value="0"> not devoured
+    <input type="radio" name="devour" value="1" checked> devoured<br>
+    <input type="radio" name="devour" value="0"> not devoured
   </div>
 
   <button type="submit">Add burger</button>

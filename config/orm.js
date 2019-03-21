@@ -95,8 +95,11 @@ var orm = {
 
       cb(result);
     });
-  }
+  },
+ 
 };
+
+
 
 
 module.exports = orm;
