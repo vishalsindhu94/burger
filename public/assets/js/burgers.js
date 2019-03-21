@@ -42,3 +42,5 @@ $(function() {
       );
     });
   });
+
+  // still having issues with the buttons when i click on the buttons it redirects you to an error which says cannot Post

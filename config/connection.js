@@ -1,4 +1,4 @@
-
+// theres an issue when i try to connect to heroku, i run the logs and it starts up but then midway through the logs theres a sig error and it crashes
 var mysql = require("mysql");
 var connection;
 if (process.env.JAWSDB_URL) {
